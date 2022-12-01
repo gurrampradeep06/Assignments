@@ -13,3 +13,33 @@ Json,21,85
 Then, the output of the program should be:
 [('John', '20', '90'), ('Jony', '17', '91'), ('Jony', '17', '93'), ('Json', '21', '85'), ('Tom', '19', '80')]
 """
+
+print("Enter the Records of the user : ")
+print("Enter no of records : ")
+records = list()
+for i in range(0, int(input())):
+    templist = list()
+    print("Enter Name :", i, "th record")
+    templist.append(input())
+    print("Enter Age :", i, "th record")
+    templist.append(input())
+    print("Enter Score :", i, "th record")
+    templist.append(input())
+    records.append(tuple(templist))
+
+for i in range(0,len(records)-1):
+    for j in range(i+1,len(records)):
+        if records[i][0] > records[j][0]:
+            records[i],records[j] = records[j],records[i]
+        elif records[i][0] == records[j][0]:
+            if records[i][1] > records[j][1]:
+                records[i],records[j] = records[j],records[i]
+            if records[i][1] == records[j][1]:
+                if records[i][2] > records[j][2]:
+                    records[i],records[j] = records[j],records[i]
+
+
+
+print(records)
+
+
